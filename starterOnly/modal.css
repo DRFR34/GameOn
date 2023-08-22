@@ -440,6 +440,7 @@ input[data-error]::after {
   font-weight: normal;
   white-space: nowrap;
 }
+
 .hero-text {
   width: 146%;
   font-weight: normal;
@@ -478,7 +479,17 @@ footer {
   padding-right: 2vw;
   margin: 0 20px;
 }
+
+/**** MEDIA QUERIES ********/
+
 @media screen and (max-width: 800px) {
+
+  .logo {
+    width:103px;
+    height: 19px;
+  }
+
+
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -495,12 +506,13 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     white-space: normal;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 0.813rem;
+    word-wrap: ;
   }
   .hero-img img {
     border-radius: 10px;
@@ -526,4 +538,3 @@ footer {
     opacity: 1;
   }
 }
-
