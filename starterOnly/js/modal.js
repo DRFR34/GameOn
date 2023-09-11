@@ -61,84 +61,26 @@ function closeModal() {
  
 
 
-//** Validation des inputs
+// création de la modale de confirmation d'inscription
+// function createRegistrationConfirmedModal(){
+//   // corps de la modale
+//   const modalBody = document.querySelector('.modal-body');
+//   const modalBody = document.querySelector('.modal-body');
+//   modalBody.innerHTML = '<h3>Merci pour <br> votre inscription</h3>';
+//   modalBody.style.minHeight = '850px';
+//   modalBody.style.textAlign = 'center';
+//   modalBody.style.display = 'flex';
+//   modalBody.style.flexDirection = 'column';
+//   modalBody.style.justifyContent = "center";
+//   modalBody.style.alignItems = "center";
 
-
-
-//* input first (prénom)
-
-// const first= document.getElementById('first');
-
-// Regex
-// let nameFieldsRegex = /[a-zA-Z]/; 
-
-// conditions de validation
-// function firstRegexCtrl() {
-  
-//   if (first.value.match(nameFieldsRegex)) {
-//     return true;   
-//   }else {
-//     return false;   
-//   }
+//   // bouton de fermeture
+//   const confirmationCloseBtn = document.createElement('button');
+//   confirmationCloseBtn.textContent = "Fermer";
+//   confirmationCloseBtn.classList.add('btn-submit');
+//   confirmationCloseBtn.classList.add('button');
+//   confirmationCloseBtn.style.position = 'absolute';
+//   confirmationCloseBtn.style.bottom = '25px';    
+//   modalBody.appendChild(confirmationCloseBtn); 
+//   confirmationCloseBtn.addEventListener('click', closeModal);
 // }
-
-
-// console.log( "firstRegexCtrl:" + firstRegexCtrl())  ;
- 
-
-// // Listener'SUBMIT' du formulaire
-// form.addEventListener('submit', (e) => {
-//   e.preventDefault();
-// cslg(e);
-// console.log("valeur de e" + e );
-
-  
-// message de validation 
-
-// if(isValidForm()) faire une boucle
-//switch case tableau erreur avec valeur objet code erreur  => message par code erreur
-
-//  const errors = [ {code: 'name', message: 'veuillez entrer un prénom'} ] // objet  + refaire une variable pour nom et prénom
-
-
-//  getErrorMessage(errorCode) { 
-//   return errors.find(o => o.code === errorCode);
-// }
-
-
-// déclaration fonction
-
-// objet de type 
-// [
-// {selecteurDuChamp: "" , etatDuChamp:"" }  
-// {selecteurDuChamp: "" , etatDuChamp:"" }   
-// ]
-/*******
- * Message de confirmation si les controles sont ok
- *********/
-
-
-
-
-
-    
-  // ! retirer la span si présente
-  //!     if (document.getElementById('myspan')){
-  // !      document.getElementById('myspan').remove();
-
-  //     }
-    // // si les RegEx ne sont pas respectées => apparition du texte d'erreur
-    // const firstDivContainer = document.querySelector('.firstDivContainer');
-    // // const child = firstDivContainer.lastElementChild;
-    
-    // const firstErrorSpan = document.createElement('span');
-    // firstErrorSpan.setAttribute('id', 'myspan')
-    // firstErrorSpan.textContent = "Veuillez entrer au moins deux caractères";
-    // firstErrorSpan.classList.add('errorSpanStyle');
-   
-    // firstDivContainer.appendChild(firstErrorSpan);
-
-//   }
-  
-// });
-
