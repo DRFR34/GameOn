@@ -5,20 +5,18 @@
 
 //****** DECLARATION DES VARIABLES ***************
 
-// Variable (boolean)  de vérification globale - initialisation à true
+// Variable (boolean)  de vérification des inputs requis - initialisation à true - si un ou plus champs en erruer, passe à false.
 let requiredInputsValidated = true;
 console.log("requiredInputsValidated : " + requiredInputsValidated);
 
 // Variable (boolean) de vérification des boutons radio - initialisation à false
 let radioBtnValidated = false;
 console.log("radioBtnValidated : " + radioBtnValidated);
-// Variable (boolean) de validation globale des inputs
+
+// Variable (boolean) de validation globale des inputs → si true la confirmation d'inscription peur s'afficher
 let AllInputsValidated = radioBtnValidated && requiredInputsValidated;
 console.log("AllInputsValidated : " + AllInputsValidated);
 
-// !test si validé
-// AllInputsValidated = true;
-//     console.log("AllInputsValidated : " + AllInputsValidated);
 
 //****** DEFINITION DES REGEX ***************
 
@@ -34,86 +32,148 @@ const quantityFieldRegex = /[0-9]/;
 
 // Fonction testant les champs requis, sauf les boutons radio
 function requiredFieldsInspection() {
-    console.log("Fonction appelée : requiredFieldsInspection");
-    // Trouver les inputs avec l'attribut required → NodeList
-    let errorSpanId = '';
-    console.log(errorSpanId);
-    const requiredFieldsList = document.querySelectorAll('input[required]');
-    console.log("requiredFieldsList :" + requiredFieldsList);
-    console.log(requiredFieldsList);
+            console.log("Fonction appelée : requiredFieldsInspection");
+    
 
-    // Parcour la nodeList et Faire un switch de vérification pour chaque type de champ
+    // variable qui va servir pour créer les  span d'erreurs
+    let errorSpan; 
+
+    // variable qui va servir pour créer les identifiants  des span d'erreurs
+    let errorSpanId = ''; 
+            console.log(errorSpanId);
+    
+    
+            // Trouver les inputs avec l'attribut required → NodeList
+    const requiredFieldsList = document.querySelectorAll('input[required]');
+            console.log("requiredFieldsList :" + requiredFieldsList);
+            console.log(requiredFieldsList);
+
+    // Parcours la nodeList et faire un switch de vérification pour chaque type de champ
     requiredFieldsList.forEach((requiredField) => {
-        // requiredField.addEventListener ("input", (e) => {  // écouteur d'évènement
-        //     console.log("e.target.id : ");
-        //     console.log(e.target.id);
-        //switch (e.target.id) { // choisir selon l'identifiant
-        console.log(requiredField.id);
-        switch (requiredField.id) { // choisir selon l'identifiant
+            console.log(requiredField.id);
+        // choisir selon l'identifiant
+        switch (requiredField.id) { 
 
             case "first":  // id = first :
-                errorSpanId = 'firstErrorSpan';
-                console.log("errorSpanId first: " + errorSpanId);
-                console.log(requiredField.value)
+                        console.log("requiredField.id pour first : " + requiredField.id);
+                errorSpanId = 'firstErrorSpan'; 
+                        console.log("errorSpanId first: " + errorSpanId);
+                        console.log( "requiredField.value pour first : " + requiredField.value);
                 // resetfieldErrorIndication(requiredField, errorSpanId);
-                if (!requiredField.value.match(nameFieldsRegex)) { // si valeur ne correspond pas à la regex nameFieldsRegex
-                    requiredInputsValidated = false; // la valeur de la variable requiredInputsValidated devient 'false'
-                    requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir au moins deux caractères"); // appeler la fonction pour indiquer l'erreur, avec le paramètre " Veuillez entrer au moins deux caractères"
-                }
-                break;
-            case "last":  //dans le cas où l'input est de type texte, alors :
-                errorSpanId = 'lastErrorSpan';
-                console.log(errorSpanId);
-                // resetfieldErrorIndication(requiredField, errorSpanId);
-                if (!requiredField.value.match(nameFieldsRegex)) { // si valeur ne correspond pas à la regex nameFieldsRegex
-                    requiredInputsValidated = false; // la valeur de la variable requiredInputsValidated devient 'false'
-                    // requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir au moins deux caractères"); // appeler la fonction pour indiquer l'erreur, avec le paramètre " Veuillez entrer au moins deux caractères"
-                }
-                break;
-            case "email":
-                console.log("requiredField.innerText " + requiredField.data);
-                console.log("requiredField.id " + requiredField.id);
-                errorSpanId = 'emailErrorSpan';
-                console.log(errorSpanId);
-                // resetfieldErrorIndication(requiredField, errorSpanId);
-                // if (!requiredField.value.match(emailFieldRegex)) {
-                if (!requiredField.innerText === emailFieldRegex) {
 
+                // si valeur ne correspond pas à la regex nameFieldsRegex
+                        console.log("Prénom -  ne correspond pas à regex : " + (!requiredField.value.match(nameFieldsRegex)));
+                if (!requiredField.value.match(nameFieldsRegex)) { 
+                        
+                    // la valeur de la variable requiredInputsValidated devient 'false'
+                    requiredInputsValidated = false; 
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
+                    requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir au moins deux caractères"); 
+                }
+                break;
+
+            case "last":  // id ="last"
+
+                errorSpanId = 'lastErrorSpan';
+                        console.log(errorSpanId);
+                        console.log( "requiredField.value pour last : " + requiredField.value);
+                        
+                        
+
+                // resetfieldErrorIndication(requiredField, errorSpanId);
+
+                // si valeur ne correspond pas à la regex nameFieldsRegex
+                        console.log("Nom - correspondance avec la regex : " + (!requiredField.value.match(nameFieldsRegex)));
+
+                if (!requiredField.value.match(nameFieldsRegex)) { 
+                    
+
+                    // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
+                    requiredInputsValidated = false; 
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
+                    requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir au moins deux caractères"); 
+                }
+                break;
+
+            case "email": // id ="email"
+
+                        // console.log("requiredField.innerText " + requiredField.data);
+                        // console.log("requiredField.id " + requiredField.id);
+
+                errorSpanId = 'emailErrorSpan';
+                        console.log(errorSpanId);
+                        console.log( "requiredField.value pour email : " + requiredField.value);
+
+                // resetfieldErrorIndication(requiredField, errorSpanId);
+
+                // si valeur ne correspond pas à la regex nameFieldsRegex
+
+                // if (!requiredField.value.match(emailFieldRegex)) {
+                if (requiredField.innerText === emailFieldRegex) {
+
+                    // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
                     requiredInputsValidated = false;
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
                     requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir une adresse e-mail valide");
                 }
                 break;
+
             case "birthdate":
                 errorSpanId = 'birthdateErrorSpan';
-                console.log(errorSpanId);
+                        console.log(errorSpanId);
+                        console.log( "requiredField.value pour birthdate : " + requiredField.value);
+
+
                 // resetfieldErrorIndication(requiredField, errorSpanId);
                 if (requiredField.value === '') {
+
+                    // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
                     requiredInputsValidated = false;
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
                     requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir votre date de naissance");
                 }
                 break;
 
             case "quantity":
                 errorSpanId = 'quantityErrorSpan';
-                console.log(errorSpanId);
+                        console.log( "quantity errorSpanId : " + errorSpanId);
+                        console.log( "requiredField.value pour quantity : " + requiredField.value);
+
+
                 // resetfieldErrorIndication(requiredField, errorSpanId);
                 console.log("test du if de quantity"(requiredField.value < 0 || requiredField.value > 20));
                 if (requiredField.value < 0 || requiredField.value > 20) {
+                            console.log("quantity - test du if : "(requiredField.value < 0 || requiredField.value > 20));
+
+                    // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
                     requiredInputsValidated = false;
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
                     requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir un nombre compris entre 0 et 20");
                 }
                 break;
 
             case "checkboxCondition1":
                 errorSpanId = 'checkboxCondition1ErrorSpan';
-                console.log(errorSpanId);
+                        console.log(errorSpanId);
+                        console.log( "requiredField.value pour checkbox1 : " + requiredField.value);
+
                 // resetfieldErrorIndication(requiredField, errorSpanId);
                 if (!requiredField.checked) {
+
+                    // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
                     requiredInputsValidated = false;
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
                     requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez accepter les conditions d'utilisations");
                 }
                 break;
-            default:
+
+            default: // utile ?
                 null;
 
         }
@@ -123,56 +183,68 @@ function requiredFieldsInspection() {
 
     });
     console.log("requiredInputsValidated en fin de requiredFieldsInspection() :" + requiredInputsValidated);
-    // }) ;
+    
 }
 
 //fonction permettant la validation des boutons radio 
 function radioBtnInspection() {
-    console.log("Fonction appelée : radioBtnInspection");
+        console.log("Fonction appelée : radioBtnInspection");
 
     const locationButtonsList = document.querySelectorAll('input[name="location"]');
-    console.log("locationButtonsList :" + locationButtonsList);
-    console.log(locationButtonsList);
+        console.log("locationButtonsList :" + locationButtonsList);
+        console.log(locationButtonsList);
 
     for (let i = 0; i < locationButtonsList.length; i++) {
         if (locationButtonsList[i].checked) {
+            
+            // la valeur de la variable  radioBtnValidated devient 'true' → permet l'affichage du message d'inscription
             radioBtnValidated = true;
-            break; // arrêt au premier bouton trouvé        
+
+            // arrêt au premier bouton trouvé  
+            break;       
         }
     }
-    console.log("radioBtnValidated après contrôle :" + radioBtnValidated)
+            console.log("radioBtnValidated après contrôle :" + radioBtnValidated)
+    // si aucun bouton n'est coché → affichage du message d'erreur        
     if (!radioBtnValidated) {
+            console.log("Boutons radio - aucun n'est coché : " + !radioBtnValidated );
+        
+            // un seul bouton suffira pour sélectionner le parent
         requiredField = document.getElementById('location1');
+
         errorSpanId = "location1ErrorSpan";
         errorMessage = "Veuillez sélectionner un lieu";
+
+       // appel de la fonction affichant l'erreur, avec les paramètres particuliers
         requiredFieldErrorIndication(requiredField, errorSpanId, errorMessage);
     }
 }
 
-// fonction permettant l'encadré rouge du champ en erreur et du message d'erreur correspondant     
+// fonction permettant l'encadré rouge du champ en erreur et du message d'erreur correspondant aux paramètres    
 function requiredFieldErrorIndication(requiredField, errorSpanId, errorMessage) {
-    console.log("Fonction appelée : requiredFieldErrorIndication");
+            console.log("Fonction activée : requiredFieldErrorIndication");
     if (document.getElementById(errorSpanId)) {
-        //     console.log("document.getElementById(errorSpanId) dans fct requiredFieldErrorIndication");
-        //     console.log(document.getElementById(errorSpanId.value));
-        //     document.getElementById(errorSpanId).remove();
-        // }
-        if (errorSpan) {
-            console.log("if errorSpan validé");
-            document.errorSpan.remove()
+            console.log("document.getElementById(errorSpanId) dans fct requiredFieldErrorIndication");
+            console.log(document.getElementById(errorSpanId.value));
+            document.getElementById(errorSpanId).remove();
         }
+        // if (errorSpan) {
+        //         console.log("if errorSpan validé");
+        //     document.errorSpan.remove()
+        // }
         requiredField.style.border = 'red solid 3px';
         let errorSpan = document.createElement('span');
         errorSpan.setAttribute('id', errorSpanId);
         errorSpan.textContent = errorMessage;
         errorSpan.classList.add('errorSpanStyle');
         requiredField.parentNode.appendChild(errorSpan);
-    }
+    // }
 }
 
 // fonction création de la confirmation d'inscription
 function createRegistrationIsConfirmed() {
-    console.log("Fonction appelée : createRegistrationIsConfirmed");
+            console.log("Fonction appelée : createRegistrationIsConfirmed");
+
     // corps de la modale
     const modalBody = document.querySelector('.modal-body');
     modalBody.innerHTML = '<h3>Merci pour <br> votre inscription</h3>';
@@ -214,12 +286,17 @@ function createRegistrationIsConfirmed() {
 
 // fonction d'affichage de la confirmation d'inscription, si tous les champs sont ok
 function launchRegistrationConfirmation() {
-    console.log("Fonction appelée : launchRegistrationConfirmation");
+        console.log("Fonction appelée : launchRegistrationConfirmation");
+
+    // //!test
+    //         AllInputsValidated = true;
+
 
     if (AllInputsValidated) {
-        console.log("valeur AllInputsValidated : " + AllInputsValidated);
+        console.log("valeur de  AllInputsValidated : " + AllInputsValidated);
 
-        // Appel de la fonction créant la modele de confirmation
+        // Appel de la fonction créant la modale de confirmation
+                console.log("Fonction appelée : createRegistrationIsConfirmed");
         createRegistrationIsConfirmed();
 
     }
@@ -228,26 +305,24 @@ function launchRegistrationConfirmation() {
 //****** ECOUTEUR D'EVENEMENT SUR SUBMIT ***************
 
 form.addEventListener('submit', (e) => {
-    console.log("valeur de e : " + e);
-    console.log(e);
+    
+    // empêche le rechargement de la page    
     e.preventDefault();
-    //!verif
-    console.log("valeur de e : " + e);
-    console.log(e);
-    // test retrouver les champs 
-    // console.log("test selection par fin de l'id");
-    // let finId = document.querySelectorAll('[id$="-errorSpan"]')
-    // console.log("finId");
-    // console.log(finId);
+    
+        console.log("valeur de e : " + e);
+        console.log(e);
 
-
+    //Reset des variables de validation, avant les nouvelle boucles
+    requiredInputsValidated = true;
+    radioBtnValidated = false;
+   
     // Appel de requiredFieldsInspection
     requiredFieldsInspection();
 
     // Appel de radioBtnInspection
     radioBtnInspection();
 
-    // Appel de launchRegistrationConfirmed
+    // Appel de launchRegistrationConfirmed 
     launchRegistrationConfirmation();
 
 });
