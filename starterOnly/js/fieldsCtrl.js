@@ -33,7 +33,7 @@ const quantityFieldRegex = /[0-9]/;
 // Fonction testant les champs requis, sauf les boutons radio
 function requiredFieldsInspection() {
             console.log("Fonction appelée : requiredFieldsInspection");
-    
+    let testCases = false;
 
     // variable qui va servir pour créer les  span d'erreurs
     let errorSpan; 
@@ -43,7 +43,7 @@ function requiredFieldsInspection() {
             console.log(errorSpanId);
     
     
-            // Trouver les inputs avec l'attribut required → NodeList
+    // Trouver les inputs avec l'attribut required → NodeList
     const requiredFieldsList = document.querySelectorAll('input[required]');
             console.log("requiredFieldsList :" + requiredFieldsList);
             console.log(requiredFieldsList);
@@ -59,7 +59,7 @@ function requiredFieldsInspection() {
                 errorSpanId = 'firstErrorSpan'; 
                         console.log("errorSpanId first: " + errorSpanId);
                         console.log( "requiredField.value pour first : " + requiredField.value);
-                // resetfieldErrorIndication(requiredField, errorSpanId);
+                resetfieldErrorIndication(requiredField, errorSpanId);
 
                 // si valeur ne correspond pas à la regex nameFieldsRegex
                         console.log("Prénom -  ne correspond pas à regex : " + (!requiredField.value.match(nameFieldsRegex)));
@@ -145,9 +145,9 @@ function requiredFieldsInspection() {
 
 
                 // resetfieldErrorIndication(requiredField, errorSpanId);
-                console.log("test du if de quantity"(requiredField.value < 0 || requiredField.value > 20));
-                if (requiredField.value < 0 || requiredField.value > 20) {
-                            console.log("quantity - test du if : "(requiredField.value < 0 || requiredField.value > 20));
+                
+                if (!(requiredField.value < 0 || requiredField.value > 20)) {
+                            console.log("quantity - test du if : " + !(requiredField.value < 0 || requiredField.value > 20));
 
                     // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
                     requiredInputsValidated = false;
@@ -266,23 +266,28 @@ function createRegistrationIsConfirmed() {
     confirmationCloseBtn.addEventListener('click', closeModal);
 }
 
-// fonction de reset de l'affichage d'erreur
-// function resetfieldErrorIndication(requiredField, errorSpanId) {
-//     console.log("fonction appelée : resetfieldErrorIndication");
-//     requiredField.style.border = 'none';
-//     console.log("requiredField : " + requiredField);
-//     console.log(requiredField);
-//     requiredField.style.border = 'none';
-//     console.log("errorSpanId dans fct reset : ");
-//     console.log(errorSpanId);
-//     document.getElementById(errorSpanId);
-//     console.log("document.getElementById(errorSpanId)");
-//     console.log(document.getElementById(errorSpanId));
-//     if (document.getElementById(errorSpanId)) {
-//         document.getElementById(errorSpanId).remove();
 
-//     }
-// }
+
+
+
+
+// fonction de reset de l'affichage d'erreur
+function resetfieldErrorIndication(requiredField, errorSpanId) {
+            console.log("fonction appelée : resetfieldErrorIndication");
+    requiredField.style.border = 'none';
+            console.log("requiredField : " + requiredField);
+            console.log("requiredField.style.border" + requiredField.style.border);
+    
+            console.log("errorSpanId dans fct reset : ");
+            console.log(errorSpanId);
+    document.getElementById(errorSpanId);
+            console.log("document.getElementById(errorSpanId)");
+            console.log(document.getElementById(errorSpanId));
+    if (document.getElementById(errorSpanId)) {
+        document.getElementById(errorSpanId).remove();
+
+    }
+}
 
 // fonction d'affichage de la confirmation d'inscription, si tous les champs sont ok
 function launchRegistrationConfirmation() {
