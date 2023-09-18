@@ -1,7 +1,7 @@
 
 
 function editNav() {
-  // var x = document.getElementById("myTopnav");
+  //! var x = document.getElementById("myTopnav");
   let x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
@@ -19,9 +19,8 @@ const modalBtn = document.querySelectorAll(".modal-btn");
   console.log(modalBtn)
 const formData = document.querySelectorAll(".formData");
 // Ajouté - DOM 
-const closeModalSpan = document.querySelector(".close")
+const closeModalSpan = document.querySelector(".close");
 
-//
 
 
 
