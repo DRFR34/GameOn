@@ -18,9 +18,11 @@ let AllInputsValidated = false;
 console.log("AllInputsValidated : " + AllInputsValidated);
 
 //!test
-let todayDate = Date()	;
-console.log("Aujourd'hui : " + todayDate);
-let birthdate = document.getElementById('birthdate').value ;
+// let todayDate = Date()	;
+// console.log("Aujourd'hui : " + todayDate);
+// let birthdate = document.getElementById('birthdate').value ;
+
+let birthdate = document.getElementById('birthdate') ;
 console.log("birthdate : " + " type : " + typeof(birthdate) + " ; valeur de birthdate : " + birthdate );
 
 
@@ -33,7 +35,7 @@ console.log("birthdate : " + " type : " + typeof(birthdate) + " ; valeur de birt
 const nameFieldsRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ-]{2,}/;
 const emailFieldRegex = /^[\w_-]+@[\w-]+\.[a-z]{2,4}$/;
 // verification de la date de naissance par rapport au indication dans le html
-const birthdateIsValid = /(birthdate.value<brithdate.min || birthdate.value>brithdate.max)/;
+//const birthdateIsValid = (birthdate.value<birthdate.min || birthdate.value>birthdate.max);
 const quantityFieldRegex = /[0-9]/;
 
 
@@ -76,7 +78,7 @@ function requiredFieldsInspection() {
                     requiredInputsValidated = false; 
 
                     // appel de la fonction affichant l'erreur, avec les paramètres particuliers
-                    requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir au moins deux caractères"); 
+                    requiredFieldErrorIndication(requiredField, errorSpanId, "Votre prénom doit comporter au moins deux lettres"); 
                 }
                 break;
 
@@ -94,13 +96,13 @@ function requiredFieldsInspection() {
                         console.log("Nom - correspondance avec la regex : " + (!requiredField.value.match(nameFieldsRegex)));
 
                 if (!requiredField.value.match(nameFieldsRegex)) { 
-                // if (testCases) {    
+                        // if (testCases) {    
 
                     // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
                     requiredInputsValidated = false; 
 
                     // appel de la fonction affichant l'erreur, avec les paramètres particuliers
-                    requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir au moins deux caractères"); 
+                    requiredFieldErrorIndication(requiredField, errorSpanId, "Votre nom doit comporter au moins deux lettres"); 
                 }
                 break;
 
@@ -130,15 +132,42 @@ function requiredFieldsInspection() {
                 break;
 
             case "birthdate":
+                        console.log("birthdate :  " + requiredField.value);
+                        console.log(requiredField);
+                        
                 errorSpanId = 'birthdateErrorSpan';
                         console.log(errorSpanId);
                         console.log( "requiredField.value pour birthdate : " + requiredField.value);
+                        console.log( requiredField.value);
 
 
                 // suppression des indications d'erreurs éventuelles crées lors d'un précédent submit
                 resetfieldErrorIndication(requiredField, errorSpanId);
+                        console.log("birthdate.min : " , birthdate.min);
+                        console.log("birthdate.max  : ", birthdate.max  );
 
-                if (!birthdateIsValid) {
+                // détermination de l'âge selon la date de naissance → majorité                
+                let diffDates = Date.now() - requiredField.valueAsNumber;
+                        console.log("diff :" , diffDates);
+                // conversion des ms en années, arrondi à l'entier inférieur       
+                let userAge = Math.floor (diffDates / 31556952000); //           
+                        console.log( "userAge : ", userAge);
+
+                // utilisateur mineur
+                if (userAge < 18) { 
+                // if (!birthdateIsValid) {
+                // if (testCases) {
+
+                    // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
+                    requiredInputsValidated = false;
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
+                    requiredFieldErrorIndication(requiredField, errorSpanId, "Nous sommes désolés, vous devez être majeur(e) pour participer");
+                }
+
+                // aucune date saisie
+                if (requiredField.value === "") { 
+                // if (!birthdateIsValid) {
                 // if (testCases) {
 
                     // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
@@ -147,6 +176,19 @@ function requiredFieldsInspection() {
                     // appel de la fonction affichant l'erreur, avec les paramètres particuliers
                     requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir votre date de naissance");
                 }
+
+                // date saisie trop ancienne
+                if (requiredField.value < birthdate.min && requiredField.value !== "") { 
+                // if (!birthdateIsValid) {
+                // if (testCases) {
+
+                    // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
+                    requiredInputsValidated = false;
+
+                    // appel de la fonction affichant l'erreur, avec les paramètres particuliers
+                    requiredFieldErrorIndication(requiredField, errorSpanId, "Cette date est trop ancienne, merci de la corriger");
+                }
+
                 break;
 
             case "quantity":
@@ -158,9 +200,9 @@ function requiredFieldsInspection() {
                 // suppression des indications d'erreurs éventuelles crées lors d'un précédent submit
                 resetfieldErrorIndication(requiredField, errorSpanId);
                 
-                // if (!(requiredField.value < 0 || requiredField.value > 20)) {
-                if (testCases) {
-                            console.log("quantity - test du if : " + !(requiredField.value < 0 || requiredField.value > 20));
+                if (!requiredField.value.match(quantityFieldRegex) && (requiredField.value ==='' || requiredField.value< 0 || requiredField.value > 50)) {
+                    // if (testCases) {
+                            // console.log("quantity - test du if : " + (requiredField.value ==='' || requiredField.value< 0 || requiredField.value > 50));
 
                     // la valeur de la variable requiredInputsValidated devient ou reste 'false' → empèche l'affichage du message d'inscription
                     requiredInputsValidated = false;
@@ -266,19 +308,14 @@ function createRegistrationIsConfirmed() {
             console.log("Fonction appelée : createRegistrationIsConfirmed");
 
     // sélection du corps de la modale
-    const modalBody = document.querySelector('.modal-body');
-
-   
-    // supression des éléments précédents de modal body
-
-    while (modalBody.hasChildNodes) {
-        modalBody.removeChild(modalBody.firstChild)
-        console.log("contenu de modal-body (doit devenir vide) : ");
-        console.log(modalBody);
-    }
-
+    let modalBody = document.querySelector('.modal-body');
     
-
+    // supression des éléments précédents du fromulaire
+    let form = document.getElementById('form')
+    console.log(form);
+    modalBody.removeChild(form)
+    
+    
     // insertion du message de confirmation
     modalBody.innerHTML = '<h3>Merci pour <br> votre inscription</h3>';
     modalBody.style.minHeight = '850px';
