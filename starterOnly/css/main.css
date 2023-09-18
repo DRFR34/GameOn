@@ -1,3 +1,5 @@
+@import url(./media_queries.css);
+
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
@@ -68,7 +70,7 @@ img {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
@@ -90,8 +92,6 @@ img {
   }
 }
 
-
-
  @media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
@@ -99,7 +99,7 @@ img {
     display: block;
     margin-top: -15px;
   }
-} 
+}  */
 
 main {
   font-size: 130%;
@@ -484,7 +484,7 @@ footer {
 
 /**** MEDIA QUERIES ********/
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
 
   .logo {
     width:103px;
@@ -514,9 +514,9 @@ footer {
   .hero-text {
     width: unset;
     font-size: 0.813rem;
-    /*!voir ce qui doit ^tre fait 
-     word-wrap: ; */
+     word-wrap: ; 
   }
+ 
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
@@ -530,7 +530,7 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
-}
+} */
 
 @keyframes modalopen {
   from {
