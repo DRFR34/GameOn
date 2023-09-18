@@ -5,10 +5,10 @@
   <meta charset="utf-8" />
   <title>Réservation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="./css/modal.css" />
+  <link rel="stylesheet" href="./css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/x-icon" href="./images/faviconRed.png">
   <script src="./js/modal.js" defer></script>
   <!-- <script src="./js/annex.js" defer></script> -->
   <script src="./js/fieldsCtrl.js" defer></script>
@@ -110,7 +110,7 @@
               <label class="checkbox-label" for="location2">
                 <span class="checkbox-icon"></span>
                 San Francisco</label>
-              <input class="checkbox-input" type="checkbox" id="location3" name="location" value="Seattle" />
+              <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" />
               <label class="checkbox-label" for="location3">
                 <span class="checkbox-icon"></span>
                 Seattle</label>
@@ -131,18 +131,22 @@
             </div>
             <!-- TERMS OF USE -->
             <div class="formData">
-              <input class="checkbox-input" type="checkbox" id="checkboxCondition1" required />
-              <label class="checkbox2-label" for="checkboxCondition1">
+              <!-- <input class="checkbox-input" type="checkbox" id="checkboxCondition1" required />
+              <label class="checkbox2-label" for="checkboxCondition1"> -->
+              <input class="checkbox-input" type="checkbox" id="checkboxTermsOfUse" required />
+              <label class="checkbox2-label" for="checkboxTermsOfUse">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
               <br>
             </div>
               <!-- <p id ="errorConditionsText" class="errorTexts">Veuillez accepter les conditions d'utilisations</p> -->
-            <!--  AGREE MARKETING -->
-            <div class="formData"></div>
-              <input class="checkbox-input" type="checkbox" id="checkboxCondition2" />
-              <label class="checkbox2-label" for="checkboxCondition2">
+            <!--  OPTIN NEWSLETTER -->
+            <div class="formData">
+              <!-- <input class="checkbox-input" type="checkbox" id="checkboxCondition2" /> -->
+              <!-- <label class="checkbox2-label" for="checkboxCondition2"> -->
+              <input class="checkbox-input" type="checkbox" id="checkboxOptin" />
+              <label class="checkbox2-label" for="checkboxOptin">
                 <span class="checkbox-icon"></span>
                 Je souhaite être prévenu des prochains évènements.
               </label>              
