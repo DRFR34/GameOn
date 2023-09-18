@@ -207,7 +207,21 @@
 //   })
 	
 	
+// let todayDate = Date()	;
+// console.log("Aujourd'hui : " + todayDate);
+// let birthdate = document.getElementById('birthdate').value ;
+// console.log("birthdate : " + " type : " + typeof(birthdate) + "valeur de birthdate : " + birthdate );
 	
 	
-	
-	
+// ===========================================
+//! création d'un objet regroupant les valeurs des champs
+// let registeredParticipant = {
+// 	firstName : "",
+// 	lastName : "",
+// 	email : "",
+// 	birthDate : "",
+// 	quantity : "",
+// 	location : "",
+// 	checkboxTermsOfUse : "",
+// 	checkboxOptin : ""
+// };
