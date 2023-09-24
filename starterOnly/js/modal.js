@@ -1,23 +1,34 @@
 
+// ! séparation du js  et du Html → event listener plutôt que onclick
+// const burgerIcon = document.getElementById('burgerIcon');
+// burgerIcon.addEventListener("click", editNav);
 
-function editNav() {
-  //! var x = document.getElementById("myTopnav");
-  let x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
 
+
+// function editNav() {
+//   //! var x = document.getElementById("myTopnav"); + renommage de x en myTopNav
+//   let nav = document.getElementById("nav");
+//   if (nav.className === "nav") {
+//     nav.className += " responsive";
+//   } else {
+//     nav.className = "nav";
+//   }
+// }
+
+iconsBox.addEventListener('click', ()=>{
+  navLinksBox.classList.toggle('active');
+  iconsBox.classList.toggle('active');
+
+
+})
 
 //********************************************************* */
 //** Variables ciblant les Elements DOM
 //********************************************************* */
 const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-  console.log(modalBtn)
-const formData = document.querySelectorAll(".formData");
+const modalBtns = document.querySelectorAll(".modal-btn");
+  console.log(modalBtns)
+// const formData = document.querySelectorAll('[data-jsSelector="formData"]');
 // Ajouté - DOM 
 const closeModalSpan = document.querySelector(".close");
 
@@ -47,7 +58,7 @@ const closeModalSpan = document.querySelector(".close");
 
 // launch modal event
 // launch modal form 
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+modalBtns.forEach((btn) => btn.addEventListener("click", launchModal));
 function launchModal() {
   modalbg.style.display = "block";
 }

@@ -200,7 +200,11 @@ function requiredFieldsInspection() {
                 // suppression des indications d'erreurs éventuelles crées lors d'un précédent submit
                 resetfieldErrorIndication(requiredField, errorSpanId);
                 
-                if (!requiredField.value.match(quantityFieldRegex) && (requiredField.value ==='' || requiredField.value< 0 || requiredField.value > 50)) {
+                console.log( "MathSign : ", Math.sign(requiredField.value));
+                console.log( "typeof ", typeof requiredField.value);
+                if ( Math.sign(requiredField.value)=== -1 || requiredField.value > 50 || requiredField.value ==="") {
+                    console.log("essai");
+                    
                     // if (testCases) {
                             // console.log("quantity - test du if : " + (requiredField.value ==='' || requiredField.value< 0 || requiredField.value > 50));
 
