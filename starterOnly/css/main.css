@@ -300,6 +300,11 @@ footer {
     text-align: center;
     transform: translateX(0px);
   }
+
+/*** Tablette: formulaire */
+  .content {
+    margin:90px auto;
+  }
 }
 
 /****** Mobile (0 à 767px) ******/
@@ -319,7 +324,7 @@ footer {
     height: 19px;
   }
 
-  /** Icônes du menu burger */
+  /** mobile : Icônes du menu burger */
 
   .iconsBox {
     display: block;
@@ -455,6 +460,11 @@ footer {
     padding: 30px;
     text-align: center;
     font-size: 10px;
+  }
+
+/*** mobile : formulaire */
+  .content {
+    margin: 80px auto;
   }
 
 
