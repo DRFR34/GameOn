@@ -122,7 +122,7 @@ nav {
   padding: 70px 0 ;
   /* margin-top: 57px; */
 
-  text-wrap: wrap;
+  /* text-wrap: wrap; */
 }
 
 .hero-img {
@@ -234,7 +234,7 @@ footer {
   }
 
   .hero-headline {
-    border-radius: 25 px;
+    /* border-radius: 25px; */
     padding: 40px 0;
     transform: translate( -60px, -30px);
     width: 100vw;
@@ -404,7 +404,7 @@ footer {
   .hero-section {
     box-shadow: none;
     flex-direction: column;
-    background-color: none;
+    /* background-color: none; */
   }
 
   /* .hero-section .hero-text { */
@@ -415,7 +415,7 @@ footer {
     padding: 10px 0 40px;
     font-size: 0.75rem;
     font-weight: 400;
-    font-optical-sizing: auto;
+    /* font-optical-sizing: auto; */
   }
 
   
@@ -467,7 +467,7 @@ footer {
 /*** mobile : formulaire */
   
   .modal-body {
-    padding: 18px auto 15px;
+    /* padding: 18px auto 15px; */
   }
   .close {
     /* height: 18px;
