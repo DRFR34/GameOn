@@ -320,13 +320,14 @@ footer {
   }
 
   #logo {
-    width: 103px;
-    height: 19px;
+    width: 125px;
+    height: 22px;
   }
 
   /** mobile : Icônes du menu burger */
 
   .iconsBox {
+    cursor: pointer;
     display: block;
     color: #fe142f;
     z-index: 2;
@@ -447,7 +448,7 @@ footer {
     border-radius: 10px;
   }  
 
-  #mobileSignupBtn {
+  #mobileSignupBtn {  
     display: block;
     margin: 0 auto;
     padding: 6px 35px;
@@ -464,9 +465,35 @@ footer {
   }
 
 /*** mobile : formulaire */
-  .content {
-    margin: 80px auto;
+  
+  .modal-body {
+    padding: 18px auto 15px;
+  }
+  .close {
+    /* height: 18px;
+    width: 18px; */
+  }
+  .close:before, .close:after {
+    height: 25px;
   }
 
+  .content {
+      margin: 80px auto;
+      /* width: 99%; */
+      border-radius: 15px;
+    }
+
+    label, .text-label {
+      font-size: 12px;
+      margin: 10px 0 5px;
+    }
+
+    .btn-submit {
+      display: block;
+      margin: 15px auto 0;
+      padding: 6px 35px;
+      overflow: hidden;
+      font-size: 14px;
+    }
 
 }
