@@ -176,7 +176,15 @@ footer {
   font-weight: bolder;
   transform: translateX(-100px);
 }
+.copyrights a{
+  text-decoration: none;
+  color: #fe142f;
+  font-size: 16px;
+}
 
+.copyrights>a:hover {
+  color: #3876ac;
+}
 
 /****** MEDIA QUERIES ******/
 
@@ -457,12 +465,14 @@ footer {
   }
 
   .copyrights {
+    display:block;
     transform: translateX(0);
     margin: 0;
     padding: 30px 0;
     text-align: center;
     font-size: 10px;
   }
+  
 
 /*** mobile : formulaire */
   

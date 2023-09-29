@@ -5,16 +5,16 @@
   <meta charset="utf-8">
   <title>Réservation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="./starterOnly/css/main.css">
+  <link rel="stylesheet" href="./starterOnly/css/style_form_plus.css">
   <script src="https://kit.fontawesome.com/64a15eb5cd.js"></script> 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="./starterOnly/images/faviconRed.png">
-  <script src="./starterOnly/js/modal.js" defer></script>
+  <link rel="icon" type="image/x-icon" href="./starterOnly/images/faviconBlue.png">
+  <script src="./starterOnly/js/modal_form_plus.js" defer></script>
   <!-- <script src="./js/annex.js" defer></script> -->
-  <script src="./starterOnly/js/fieldsCtrl.js" defer></script>
+  <script src="./starterOnly/js/fieldsCtrl_form_plus.js" defer></script>
 </head>
 
 <body>
@@ -84,45 +84,41 @@
                 <!-- <div  class="formData firstDivContainer"> -->
                 <div  class="firstDivContainer" data-jsSelector="formData">
                   <label for="first">Prénom</label><br>
-                  <input class="text-control" type="text" id="first" name="first" minlength="2" required>
+                  <input class="text-control" type="text" id="first" name="first" value="gg" required>
                   <!-- <p class="errorTexts">Veuillez entrer au moins deux caractères</p> -->
                 </div>
                 <!-- LAST NAME -->
                 <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
                   <label for="last">Nom</label><br>
-                  <input class="text-control" type="text" id="last" name="last" required>
+                  <input class="text-control" type="text" id="last" name="last" value="gg" required>
                   <!-- <p class="errorTexts">Veuillez entrer au moins deux caractères</p> -->
                 </div>
                 <!-- EMAIL -->
                 <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
                   <label for="email">E-mail</label><br>
-                  <input class="text-control" type="email" id="email" name="email" required>
+                  <input class="text-control" type="email" id="email" name="email"  value="gg@gg.com" required>
                   <!-- <p class="errorTexts">Veuillez entrer une adresse mail valide</p> -->
                 </div>
                 <!-- BIRTHDATE -->
                 <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
                   <label for="birthdate">Date de naissance</label><br>
-                  <input class="text-control" type="date" id="birthdate" name="birthdate" min="1943-01-01" required>
+                  <input class="text-control" type="date" id="birthdate" name="birthdate" min="1943-01-01"  value="1999-11-11" required>
                   <!-- <p class="errorTexts">Veuillez entrer une date de naissance valide</p> -->
                 </div>
                 <!-- TOURNAMENTS -->
                 <!-- <div class="formData" data-set=""> -->
                 <div data-jsSelector="formData">
                   <label for="quantity" >À combien de tournois GameOn avez-vous déjà participé ?</label><br>
-                  <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="100" required>
+                  <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="100" value="19" required>
                   <!-- <p class="errorTexts">Veuillez entrer une valeur entre 0 et 100</p> -->
                 </div>
               </fieldset>
     
               <fieldset>
                 <!-- LOCATIONS -->
-                <!-- !correction :
-                    *  choix exclusif, pas de "(s)"
-                    * les type ="checkbox" sont remplacés par des types radio -->
-                 <!-- <p class="text-label">A quel(s) tournoi(s) souhaitez-vous participer cette année ?</p>           -->
                 <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
                 <!-- <div class="formData" > -->
                 <div data-jsSelector="formData">
@@ -186,10 +182,10 @@
         </div>
       </div>
     </main>
-    <footer>      
+    <footer>
       <p class="copyrights">
         <!-- Copyright 2014 - 2020, GameOn Inc. -->
-        <a  href="./home_form_plus.html">Copyright 2014 - 2023, GameOn Inc.</a>
+        Copyright 2014 - 2023, GameOn Inc.
       </p>
     </footer>
   

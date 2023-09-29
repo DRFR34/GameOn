@@ -1,0 +1,7 @@
+@import url(./main.css);
+
+.btn-submit:disabled {
+    background: #646464;
+    color: #b9b8b8;
+    cursor: not-allowed;
+}

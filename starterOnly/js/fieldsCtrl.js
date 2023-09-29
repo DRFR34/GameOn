@@ -149,7 +149,7 @@ function requiredFieldsInspection() {
                 // détermination de l'âge selon la date de naissance → majorité                
                 let diffDates = Date.now() - requiredField.valueAsNumber;
                         console.log("diff :" , diffDates);
-                // conversion des ms en années, arrondi à l'entier inférieur       
+                // conversion des ms en années ( 31556952000 ms/an) + arrondi à l'entier inférieur       
                 let userAge = Math.floor (diffDates / 31556952000); //           
                         console.log( "userAge : ", userAge);
 
@@ -177,7 +177,7 @@ function requiredFieldsInspection() {
                     requiredFieldErrorIndication(requiredField, errorSpanId, "Veuillez saisir votre date de naissance");
                 }
 
-                // date saisie trop ancienne
+                // date saisie trop ancienne ( en référence à l'attirbut min placé dans la balise HTML de l'input)
                 if (requiredField.value < birthdate.min && requiredField.value !== "") { 
                 // if (!birthdateIsValid) {
                 // if (testCases) {
@@ -311,14 +311,15 @@ function requiredFieldErrorIndication(requiredField, errorSpanId, errorMessage) 
 function createRegistrationIsConfirmed() {
             console.log("Fonction appelée : createRegistrationIsConfirmed");
 
+
     // sélection du corps de la modale
     let modalBody = document.querySelector('.modal-body');
+
     
-    // supression des éléments précédents du fromulaire
-    let form = document.getElementById('form')
+    // supression des éléments précédents du formulaire
+    const form = document.getElementById('form')
     console.log(form);
     modalBody.removeChild(form)
-    
     
     // insertion du message de confirmation
     modalBody.innerHTML = '<h3>Merci pour <br> votre inscription</h3>';
@@ -338,6 +339,8 @@ function createRegistrationIsConfirmed() {
     confirmationCloseBtn.style.bottom = '25px';
     modalBody.appendChild(confirmationCloseBtn);
     confirmationCloseBtn.addEventListener('click', closeModal);
+
+    
 }
 
 
@@ -379,7 +382,7 @@ function launchRegistrationConfirmation() {
     }
 }
 
-//****** ECOUTEUR D'EVENEMENT SUR SUBMIT ***************
+//****** ECOUTEUR D'EVENEMENT SUBMIT SUR LE FORMULAIRE***************
 
 form.addEventListener('submit', (e) => {
     

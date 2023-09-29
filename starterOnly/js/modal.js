@@ -15,11 +15,10 @@
 //   }
 // }
 
+// code permettant l'affichage du menu burger, et le changement d'icône au clic
 iconsBox.addEventListener('click', ()=>{
   navLinksBox.classList.toggle('active');
   iconsBox.classList.toggle('active');
-
-
 })
 
 //********************************************************* */
