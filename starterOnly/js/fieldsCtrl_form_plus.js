@@ -312,8 +312,9 @@ function requiredFieldErrorIndication(requiredField, errorSpanId, errorMessage) 
         document.getElementById(errorSpanId).remove();
     }
 
-    // construit l'élét
-    requiredField.style.border = 'red solid 3px';
+    console.log("requiredField : ", requiredField);
+    requiredField.style.border = 'solid 2px var(--primary-color)';    
+    requiredField.classList.add('errorBorderStyle');
     let errorSpan = document.createElement('span');
     errorSpan.setAttribute('id', errorSpanId);
     errorSpan.textContent = errorMessage;

@@ -230,8 +230,8 @@ function requiredFieldErrorIndication(requiredField, errorSpanId, errorMessage) 
         document.getElementById(errorSpanId).remove();
     }
 
-    // construction de la bordure rouge span d'erreur
-    requiredField.style.border = 'red solid 3px';
+    // construction de la bordure rouge  + span d'erreur
+    requiredField.style.border = 'solid 2px var(--primary-color)';  
     let errorSpan = document.createElement('span');
     errorSpan.setAttribute('id', errorSpanId);
     errorSpan.textContent = errorMessage;
