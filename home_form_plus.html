@@ -13,20 +13,14 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,500&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="./starterOnly/images/faviconBlue.png">
   <script src="./starterOnly/js/modal_form_plus.js" defer></script>
-  <!-- <script src="./js/annex.js" defer></script> -->
   <script src="./starterOnly/js/fieldsCtrl_form_plus.js" defer></script>
 </head>
 
 <body>
     <header>
-      <!-- <nav class="topnav" id="myTopnav"> -->
-      <nav class="nav" id="nav">
-        <!-- ! div inutile -->
-        <!-- <div class="navLogo"> -->
+      <nav class="nav" id="nav">        
         <img id="logo" alt="logo Game On" src="./starterOnly/images/Logo.png">          
-        <div id="navLinksBox" >   
-          <!-- !suppression classe active inutile, car lien masqué dans la maquette  -->
-          <!-- <a href="#" class="active"><span>Accueil</span></a> -->
+        <div id="navLinksBox" >
           <a href="#"><span>Accueil</span></a>
           <a href="#"><span>Détails de l'évènement</span></a>
           <a href="#"><span>À propos</span></a>
@@ -34,15 +28,7 @@
           <a href="#"><span>Évènements passés</span></a>
         </div> 
         <div id="iconsBox" class="iconsBox">
-          <!-- <i class="fa fa-bars menuIcon"></i>--> 
-          <!-- <i id="burgerIcon" class="fa-solid fa-bars"></i> -->
-          <!-- ajout d'une icône pour la fermeture du menu burger -->
-          <!-- <i id="closeBurgerIcon"  class="fa-solid fa-xmark"></i> --> 
-      </div>
-          <!-- suppression du onclik pour bien séparer le HTML du JS -->
-          <!-- remplacement de la balise a inappropriée par une div -->
-           <!-- <a href="javascript:void(0);" class="icon" onclick="editNav()"> -->
-        
+        </div>
       </nav>
     </header>
     <main>
@@ -68,59 +54,47 @@
           Je m'inscris
         </button>
       </div>
+
       <!--MODAL-->
-      <!-- classe fond non utilisée -->
-      <!-- <div class="bground fond"> -->
       <div class="bground">
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
+
             <!--FORM-->
-            <!-- <form name="reserve" action="index.html" method="get" onsubmit="return validate();" -->
             <form id="form" name="reserve" action="index.html" method="get" novalidate>
     
               <fieldset>
                 <!-- FIRST NAME -->
-                <!-- <div  class="formData firstDivContainer"> -->
                 <div  class="firstDivContainer" data-jsSelector="formData">
                   <label for="first">Prénom</label><br>
                   <input class="text-control" type="text" id="first" name="first"  required>
-                  <!-- <p class="errorTexts">Veuillez entrer au moins deux caractères</p> -->
                 </div>
                 <!-- LAST NAME -->
-                <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
                   <label for="last">Nom</label><br>
                   <input class="text-control" type="text" id="last" name="last"  required>
-                  <!-- <p class="errorTexts">Veuillez entrer au moins deux caractères</p> -->
                 </div>
                 <!-- EMAIL -->
-                <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
                   <label for="email">E-mail</label><br>
                   <input class="text-control" type="email" id="email" name="email"   required>
-                  <!-- <p class="errorTexts">Veuillez entrer une adresse mail valide</p> -->
                 </div>
                 <!-- BIRTHDATE -->
-                <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
                   <label for="birthdate">Date de naissance</label><br>
                   <input class="text-control" type="date" id="birthdate" name="birthdate" min="1943-01-01" required>
-                  <!-- <p class="errorTexts">Veuillez entrer une date de naissance valide</p> -->
                 </div>
                 <!-- TOURNAMENTS -->
-                <!-- <div class="formData" data-set=""> -->
                 <div data-jsSelector="formData">
                   <label for="quantity" >À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                   <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="100" required>
-                  <!-- <p class="errorTexts">Veuillez entrer une valeur entre 0 et 100</p> -->
                 </div>
               </fieldset>
     
               <fieldset>
                 <!-- LOCATIONS -->
                 <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-                <!-- <div class="formData" > -->
                 <div data-jsSelector="formData">
                   <input class="checkbox-input" type="radio" id="location1" name="location" value="New York">
                   <label class="checkbox-label" for="location1">
@@ -147,15 +121,12 @@
                     <span class="checkbox-icon"></span>
                     Portland</label>
                     <br>
-                    <!-- <p id ="errorCity" class="errorTexts">Veuillez séléctionner une ville ou plus</p> -->
                 </div>
               </fieldset>
               <fieldset>
+
                 <!-- TERMS OF USE -->
-                <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
-                  <!-- <input class="checkbox-input" type="checkbox" id="checkboxCondition1" required />
-                  <label class="checkbox2-label" for="checkboxCondition1"> -->
                   <input class="checkbox-input" type="checkbox" id="checkboxTermsOfUse" required >
                   <label class="checkbox2-label" for="checkboxTermsOfUse">
                     <span class="checkbox-icon"></span>
@@ -163,12 +134,9 @@
                   </label>
                   <br>
                 </div>
-                  <!-- <p id ="errorConditionsText" class="errorTexts">Veuillez accepter les conditions d'utilisations</p> -->
+
                 <!--  OPTIN MARKETING -->
-                <!-- <div class="formData"> -->
                 <div data-jsSelector="formData">
-                  <!-- <input class="checkbox-input" type="checkbox" id="checkboxCondition2" /> -->
-                  <!-- <label class="checkbox2-label" for="checkboxCondition2"> -->
                   <input class="checkbox-input" type="checkbox" id="checkboxOptin">
                   <label class="checkbox2-label" for="checkboxOptin">
                     <span class="checkbox-icon"></span>
@@ -184,7 +152,6 @@
     </main>
     <footer>
       <p class="copyrights">
-        <!-- Copyright 2014 - 2020, GameOn Inc. -->
         Copyright 2014 - 2023, GameOn Inc.
       </p>
     </footer>
